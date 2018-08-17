@@ -1,4 +1,9 @@
 *
 !/.gitignore.d
 !/.gitignore.d/zsh
+!/.zlogin
+!/.zlogout
+!/.zpreztorc
+!/.zprofile
+!/.zshenv
 !/.zshrc
