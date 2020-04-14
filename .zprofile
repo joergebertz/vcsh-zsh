@@ -1,5 +1,4 @@
-#
-# Executes commands at login pre-zshrc.
+# vim:foldmethod=marker
 #
 # .zprofile is similar to .zlogin, except that it is sourced before .zshrc.
 # .zprofile is meant as an alternative to `.zlogin' for ksh fans; the two are
@@ -9,33 +8,17 @@
 # Files are read in this order:
 # .zshenv. /etc/zprofile .zprofile. /etc/zshrc .zshrc /etc/zlogin .zlogin
 
-#
-# Browser
-#
-
-if [[ "$OSTYPE" == darwin* ]]; then
-  export BROWSER='open'
-fi
-
-#
 # Editors
-#
 
-export EDITOR='nano'
-export VISUAL='nano'
+export EDITOR='vim'
+export VISUAL='vim'
 export PAGER='less'
 
-#
 # Language
-#
 
-if [[ -z "$LANG" ]]; then
-  export LANG='en_US.UTF-8'
-fi
+export LANG='de_DE.UTF-8'
 
-#
 # Paths
-#
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
@@ -51,9 +34,7 @@ path=(
   $path
 )
 
-#
 # Less
-#
 
 # Set the default Less options.
 # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
