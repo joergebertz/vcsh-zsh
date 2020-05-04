@@ -41,10 +41,13 @@
     alias apt-get='sudo /usr/bin/apt-get'
     alias apt-file='sudo /usr/bin/apt-file'
     alias aptitude='sudo /usr/bin/aptitude'
-    alias poweroff='sudo /sbin/poweroff'
     alias checkrestart='sudo /usr/sbin/checkrestart'
+    alias poweroff='sudo /sbin/poweroff'
     alias reboot='sudo /sbin/reboot'
     alias halt='sudo /sbin/halt'
+    alias dmesg='sudo /bin/dmesg'
+    alias iotop='sudo /usr/sbin/iotop'
+    alias updatedb='sudo /usr/bin/updatedb'
   fi
 # }}}
 
