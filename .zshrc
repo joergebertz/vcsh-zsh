@@ -85,8 +85,8 @@
 # Run programms {{{
 # root usually doesn't ssh anywhere, so no key ist added
   if [ "`id -u`" -eq 0 ]; then
-    eval `keychain --eval --quiet --agents ssh`
+    eval `keychain --eval --quiet --agents gpg,ssh`
   else
-    eval `keychain --eval --quiet --agents ssh id_rsa`
+    eval `keychain --eval --quiet --agents gpg,ssh id_rsa`
   fi
 # }}}
