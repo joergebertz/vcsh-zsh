@@ -12,15 +12,19 @@
 
 # Language {{{
 # ‘en_US.UTF-8’ for root ‘de_DE.UTF-8‘ for normal users
-  if [ "`id -u`" -eq 0 ]; then
-    export LANG='en_US.UTF-8'
-    export LANGUAGE='en_US.UTF-8'
-    export LC_ALL='en_US.UTF-8'
-  else
-    export LANG='de_DE.UTF-8'
-    export LANGUAGE='de_DE.UTF-8'
-    export LC_ALL='de_DE.UTF-8'
-  fi
+if [ "`id -u`" -eq 0 ]; then
+  export LANG='en_US.UTF-8'
+  export LANGUAGE='en_US.UTF-8'
+  export LC_ALL='en_US.UTF-8'
+else
+  export LANG='de_DE.UTF-8'
+  export LANGUAGE='de_DE.UTF-8'
+  export LC_ALL='de_DE.UTF-8'
+fi
+# }}}
+
+# XDG_RUNTIME_DIR {{{
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
 # }}}
 
 # $PATH {{{
@@ -43,5 +47,5 @@ fi
 # }}}
 
 # umask {{{
-  umask 027
+  umask 022
 # }}}
