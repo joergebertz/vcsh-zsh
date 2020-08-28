@@ -21,6 +21,7 @@ zstyle ':prezto:load' pmodule \
   'environment' \
   'terminal' \
   'editor' \
+  'fasd' \
   'spectrum' \
   'utility' \
   'git' \
@@ -52,6 +53,8 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 # Allow the zsh prompt context to be shown.
 ##zstyle ':prezto:module:editor' ps-context 'yes'
 # }}}
+
+# fasd #
 
 # Spectrum #
 
@@ -120,10 +123,6 @@ zstyle ':prezto:module:prompt' theme 'steeef'
 # return codes. This is not supported by all prompts.
 ##zstyle ':prezto:module:prompt' show-return-val 'yes'
 # }}}
-
-
-
-
 
 
 # GNU Utility {{{
