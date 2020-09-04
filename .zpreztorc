@@ -21,11 +21,11 @@ zstyle ':prezto:load' pmodule \
   'environment' \
   'terminal' \
   'editor' \
-  'fasd' \
   'spectrum' \
   'utility' \
   'git' \
   'completion' \
+  'fasd' \
   'syntax-highlighting' \
   'history-substring-search' \
   'autosuggestions' \

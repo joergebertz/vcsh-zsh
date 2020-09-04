@@ -46,7 +46,7 @@ if [ "$(command -v fasd)" ]; then
 ##  alias z='fasd_cd -d'     # cd, same functionality as j in autojump
 ##  alias zz='fasd_cd -d -i' # cd with interactive selection
 
-##  alias v='f -e vim' # quick opening files with vim
+  alias v='fasd -fe vim' # quick opening files with vim
 
 ##  bindkey '^X^A' fasd-complete    # C-x C-a to do fasd-complete (files and directories)
 ##  bindkey '^X^F' fasd-complete-f  # C-x C-f to do fasd-complete-f (only files)
