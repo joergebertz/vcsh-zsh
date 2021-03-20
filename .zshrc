@@ -9,18 +9,18 @@
 # .zshenv. /etc/zprofile .zprofile. /etc/zshrc .zshrc /etc/zlogin .zlogin
 
 # Tmux {{{
-  if [[ -z "$TMUX" ]] ; then
-    ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
-    if [[ -z "$ID" ]] ; then
-      exec tmux new-session # if not available create a new one
-    else
-      exec tmux attach-session -t "$ID" # if available attach to it
-    fi
-  fi
+#  if [[ -z "$TMUX" ]] ; then
+#    ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
+#    if [[ -z "$ID" ]] ; then
+#      exec tmux new-session # if not available create a new one
+#    else
+#      exec tmux attach-session -t "$ID" # if available attach to it
+#    fi
+#  fi
 # }}}
 
 # Preferences {{{
-  export TERM='tmux-256color'
+#  export TERM='tmux-256color'
   export EDITOR='vim'
   export VISUAL='gvim'
   export PAGER='less'
@@ -105,7 +105,8 @@ if [ "$(command -v keychain)" ]; then
   if [ "`id -u`" -eq 0 ]; then
     eval `keychain --eval --quiet --agents gpg,ssh`
   else
-    eval `keychain --eval --quiet --agents gpg,ssh id_rsa`
+    # eval `keychain --eval --quiet --agents gpg,ssh id_rsa`
+    eval `keychain --eval --quiet --agents gpg,ssh`
   fi
 fi
 # }}}
