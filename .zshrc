@@ -8,16 +8,18 @@
 # Files are read in this order:
 # .zshenv. /etc/zprofile .zprofile. /etc/zshrc .zshrc /etc/zlogin .zlogin
 
-# Tmux {{{
-#  if [[ -z "$TMUX" ]] ; then
-#    ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
-#    if [[ -z "$ID" ]] ; then
-#      exec tmux new-session # if not available create a new one
-#    else
-#      exec tmux attach-session -t "$ID" # if available attach to it
-#    fi
-#  fi
-# }}}
+#Tmux {{{
+if [ $TERM != "xterm-kitty" ] || [[ -n $SSH_CLIENT ]]; then
+  if [ "$(command -v tmux)" ] && [[ -z "$TMUX" ]] ; then
+      ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
+      if [[ -z "$ID" ]] ; then
+        exec tmux new-session # if not available create a new one
+      else
+        exec tmux attach-session -t "$ID" # if available attach to it
+      fi
+  fi
+fi
+#}}}
 
 # Preferences {{{
 #  export TERM='tmux-256color'
@@ -106,7 +108,8 @@ if [ "$(command -v keychain)" ]; then
     eval `keychain --eval --quiet --agents gpg,ssh`
   else
     # eval `keychain --eval --quiet --agents gpg,ssh id_rsa`
-    eval `keychain --eval --quiet --agents gpg,ssh`
+    eval `keychain --eval --quiet --agents gpg,ssh ~/.ssh/id_ed25519`
+    ##eval `keychain --eval --quiet --agents gpg,ssh`
   fi
 fi
 # }}}
