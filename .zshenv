@@ -49,3 +49,9 @@ fi
 # umask {{{
   umask 022
 # }}}
+
+# my_zshenv {{{
+if [ -s "$HOME/.my_zshenv" ] ; then
+    . $HOME/.my_zshenv
+fi
+# }}}

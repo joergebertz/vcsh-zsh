@@ -34,43 +34,6 @@ fi
   export LESSOPEN='| /usr/bin/env lesspipe %s 2>&-'
 # }}}
 
-# Aliases for all {{{
-  alias r='ranger'
-  alias rr='source ranger'
-
-if [ "$(command -v fasd)" ]; then
-##  alias a='fasd -a'        # any
-##  alias s='fasd -si'       # show / search / select
-##  alias d='fasd -d'        # directory
-##  alias f='fasd -f'        # file
-##  alias sd='fasd -sid'     # interactive directory selection
-##  alias sf='fasd -sif'     # interactive file selection
-##  alias z='fasd_cd -d'     # cd, same functionality as j in autojump
-##  alias zz='fasd_cd -d -i' # cd with interactive selection
-
-  alias v='fasd -fe vim' # quick opening files with vim
-
-##  bindkey '^X^A' fasd-complete    # C-x C-a to do fasd-complete (files and directories)
-##  bindkey '^X^F' fasd-complete-f  # C-x C-f to do fasd-complete-f (only files)
-##  bindkey '^X^D' fasd-complete-d  # C-x C-d to do fasd-complete-d (only directories)
-fi
-# }}}
-
-# Aliases for sudo {{{
-  if [ "`id -u`" -ne 0 ]; then
-    alias apt-get='sudo /usr/bin/apt-get'
-    alias apt-file='sudo /usr/bin/apt-file'
-    alias aptitude='sudo /usr/bin/aptitude'
-    alias checkrestart='sudo /usr/sbin/checkrestart'
-    alias poweroff='sudo /sbin/poweroff'
-    alias reboot='sudo /sbin/reboot'
-    alias halt='sudo /sbin/halt'
-    alias dmesg='sudo /bin/dmesg'
-    alias iotop='sudo /usr/sbin/iotop'
-    alias updatedb='sudo /usr/bin/updatedb'
-  fi
-# }}}
-
 # Set up zsh {{{
 # Ensure path arrays do not contain duplicates.
 # Whatever that means...
@@ -99,6 +62,50 @@ fi
     zcompile "$zcompdump"
     fi
 } &!
+# }}}
+
+# Aliases for all {{{
+  alias r='ranger'
+  alias rr='source ranger'
+
+if [ "$(command -v fasd)" ]; then
+##  alias a='fasd -a'        # any
+##  alias s='fasd -si'       # show / search / select
+##  alias d='fasd -d'        # directory
+##  alias f='fasd -f'        # file
+##  alias sd='fasd -sid'     # interactive directory selection
+##  alias sf='fasd -sif'     # interactive file selection
+##  alias z='fasd_cd -d'     # cd, same functionality as j in autojump
+  alias zz='fasd_cd -d -i' # cd with interactive selection
+
+  alias v='fasd -fe vim' # quick opening files with vim
+
+##  bindkey '^X^A' fasd-complete    # C-x C-a to do fasd-complete (files and directories)
+##  bindkey '^X^F' fasd-complete-f  # C-x C-f to do fasd-complete-f (only files)
+##  bindkey '^X^D' fasd-complete-d  # C-x C-d to do fasd-complete-d (only directories)
+fi
+
+if [ "$(command -v exa)" ]; then
+  alias ls='exa'
+  alias ll='exa -gl'
+  alias la='exa -gla'
+  alias tree='exa -glT'
+fi
+# }}}
+
+# Aliases for sudo {{{
+  if [ "`id -u`" -ne 0 ]; then
+    alias apt-get='sudo /usr/bin/apt-get'
+    alias apt-file='sudo /usr/bin/apt-file'
+    alias aptitude='sudo /usr/bin/aptitude'
+    alias checkrestart='sudo /usr/sbin/checkrestart'
+    alias poweroff='sudo /sbin/poweroff'
+    alias reboot='sudo /sbin/reboot'
+    alias halt='sudo /sbin/halt'
+    alias dmesg='sudo /bin/dmesg'
+    alias iotop='sudo /usr/sbin/iotop'
+    alias updatedb='sudo /usr/bin/updatedb'
+  fi
 # }}}
 
 # Run programms {{{
