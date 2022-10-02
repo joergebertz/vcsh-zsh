@@ -24,7 +24,7 @@ fi
 # Preferences {{{
 #  export TERM='tmux-256color'
   export EDITOR='vim'
-  export VISUAL='gvim'
+  export VISUAL='vim'
   export PAGER='less'
   export HIGHLIGHT_STYLE='solarized-light'
 # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
