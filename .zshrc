@@ -48,6 +48,7 @@ fi
   SAVEHIST='1000'
   HISTFILE="$HOME/.zhistory"
   setopt histignorealldups sharehistory
+  setopt AUTO_CD
 # }}}
 
 # Source Prezto {{{
@@ -65,8 +66,13 @@ fi
 # }}}
 
 # Aliases for all {{{
+
+# Ranger
+
   alias r='ranger'
   alias rr='source ranger'
+
+# fasd
 
 if [ "$(command -v fasd)" ]; then
 ##  alias a='fasd -a'        # any
@@ -85,11 +91,63 @@ if [ "$(command -v fasd)" ]; then
 ##  bindkey '^X^D' fasd-complete-d  # C-x C-d to do fasd-complete-d (only directories)
 fi
 
+# exa
+
 if [ "$(command -v exa)" ]; then
   alias ls='exa'
   alias ll='exa -gl'
   alias la='exa -gla'
   alias tree='exa -glT'
+fi
+
+# fzf
+
+if [ "$(command -v fzf)" ]; then
+  source /usr/share/doc/fzf/examples/completion.zsh
+  source /usr/share/doc/fzf/examples/key-bindings.zsh
+fi
+
+# }}}
+
+# Endaliases {{{
+
+alias -s txt=nvim
+alias -s md=nvim
+
+if [[ -n $DISPLAY ]]; then
+  # With X
+  alias -s txt=nvim-qt
+
+  alias -s odt=libreoffice
+  alias -s ott=libreoffice
+  alias -s doc=libreoffice
+  alias -s dot=libreoffice
+  alias -s docx=libreoffice
+  alias -s dotx=libreoffice
+  alias -s rtf=libreoffice
+
+  alias -s odp=libreoffice
+  alias -s odg=libreoffice
+  alias -s ppt=libreoffice
+  alias -s pot=libreoffice
+  alias -s pptx=libreoffice
+  alias -s potx=libreoffice
+
+  alias -s ods=libreoffice
+  alias -s ots=libreoffice
+  alias -s xls=libreoffice
+  alias -s xlt=libreoffice
+  alias -s xlsx=libreoffice
+  alias -s xltx=libreoffice
+  alias -s csv=libreoffice
+
+  alias -s pdf=zatura
+
+  alias -s jpg=feh
+  alias -s png=feh
+
+else
+  # Without X
 fi
 # }}}
 
