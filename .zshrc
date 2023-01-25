@@ -69,8 +69,10 @@ fi
 
 # Ranger
 
+if [ "$(command -v ranger)" ]; then
   alias r='ranger'
   alias rr='source ranger'
+fi
 
 # fasd
 
@@ -109,14 +111,29 @@ fi
 
 # }}}
 
-# Endaliases {{{
+# Aliases for sudo {{{
+if [ "`id -u`" -ne 0 ]; then
+  alias apt-get='sudo /usr/bin/apt-get'
+  alias apt-file='sudo /usr/bin/apt-file'
+  alias aptitude='sudo /usr/bin/aptitude'
+  alias checkrestart='sudo /usr/sbin/checkrestart'
+  alias poweroff='sudo /sbin/poweroff'
+  alias reboot='sudo /sbin/reboot'
+  alias halt='sudo /sbin/halt'
+  alias dmesg='sudo /bin/dmesg'
+  alias iotop='sudo /usr/sbin/iotop'
+  alias updatedb='sudo /usr/bin/updatedb'
+fi
+# }}}
 
+# Endaliases Terminal {{{
 alias -s txt=nvim
 alias -s md=nvim
+# }}}
 
+# Endaliases X {{{
 if [[ -n $DISPLAY ]]; then
-  # With X
-  alias -s txt=nvim-qt
+  ##alias -s txt=nvim-qt
 
   alias -s odt=libreoffice
   alias -s ott=libreoffice
@@ -145,25 +162,7 @@ if [[ -n $DISPLAY ]]; then
 
   alias -s jpg=feh
   alias -s png=feh
-
-else
-  # Without X
 fi
-# }}}
-
-# Aliases for sudo {{{
-  if [ "`id -u`" -ne 0 ]; then
-    alias apt-get='sudo /usr/bin/apt-get'
-    alias apt-file='sudo /usr/bin/apt-file'
-    alias aptitude='sudo /usr/bin/aptitude'
-    alias checkrestart='sudo /usr/sbin/checkrestart'
-    alias poweroff='sudo /sbin/poweroff'
-    alias reboot='sudo /sbin/reboot'
-    alias halt='sudo /sbin/halt'
-    alias dmesg='sudo /bin/dmesg'
-    alias iotop='sudo /usr/sbin/iotop'
-    alias updatedb='sudo /usr/bin/updatedb'
-  fi
 # }}}
 
 # Run programms {{{
