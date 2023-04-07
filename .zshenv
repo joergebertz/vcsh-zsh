@@ -29,11 +29,15 @@ export XDG_RUNTIME_DIR=/run/user/$(id -u)
 
 # $PATH {{{
 #  Copied from ‘/etc/profile’
-  if [ "`id -u`" -eq 0 ]; then
-    PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-  else
-    PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/games:/usr/games"
-  fi
+if [ "`id -u`" -eq 0 ]; then
+  PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+else
+  PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/games:/usr/games"
+fi
+# set PATH so it includes /snap/bin if it exists
+if [ -d "/snap/bin" ] ; then
+    PATH="/snap/bin:$PATH"
+fi
 #
 # Copied from ‘/etc/skel/.profile’
 # set PATH so it includes user's private bin if it exists
