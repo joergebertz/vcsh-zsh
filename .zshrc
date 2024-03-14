@@ -168,12 +168,18 @@ fi
 # Run programms {{{
 # root usually doesn't ssh anywhere, so no key ist added
 if [ "$(command -v keychain)" ]; then
-  if [ "`id -u`" -eq 0 ]; then
+##  if [ "`id -u`" -eq 0 ]; then
     eval `keychain --eval --quiet --agents gpg,ssh`
-  else
-    # eval `keychain --eval --quiet --agents gpg,ssh id_rsa`
-    eval `keychain --eval --quiet --agents gpg,ssh ~/.ssh/id_ed25519`
-    ##eval `keychain --eval --quiet --agents gpg,ssh`
-  fi
+##  else
+##    # eval `keychain --eval --quiet --agents gpg,ssh id_rsa`
+##    eval `keychain --eval --quiet --agents gpg,ssh ~/.ssh/id_ed25519`
+##    ##eval `keychain --eval --quiet --agents gpg,ssh`
+##  fi
+fi
+# }}}
+
+# my_zshrc {{{
+if [ -s "$HOME/.my_zshrc" ] ; then
+    . $HOME/.my_zshrc
 fi
 # }}}
