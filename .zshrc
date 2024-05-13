@@ -169,6 +169,7 @@ fi
 # root usually doesn't ssh anywhere, so no key ist added
 if [ "$(command -v keychain)" ]; then
 ##  if [ "`id -u`" -eq 0 ]; then
+    export GPG_AGENT_INFO="~/.gnupg/S.gpg-agent:$(pgrep gpg-agent):1"
     eval `keychain --eval --quiet --agents gpg,ssh`
 ##  else
 ##    # eval `keychain --eval --quiet --agents gpg,ssh id_rsa`
