@@ -83,10 +83,11 @@ if [ "$(command -v fasd)" ]; then
 ##  alias f='fasd -f'        # file
 ##  alias sd='fasd -sid'     # interactive directory selection
 ##  alias sf='fasd -sif'     # interactive file selection
-##  alias z='fasd_cd -d'     # cd, same functionality as j in autojump
-  alias zz='fasd_cd -d -i' # cd with interactive selection
+  alias z='fasd_cd -d'     # cd, same functionality as j in autojump
+  alias zz='fasd_cd -di'   # cd with interactive selection
 
   alias v='fasd -fe vim' # quick opening files with vim
+  alias vv='fasd -fie vim' # quick opening files with vim with (interactive)
 
 ##  bindkey '^X^A' fasd-complete    # C-x C-a to do fasd-complete (files and directories)
 ##  bindkey '^X^F' fasd-complete-f  # C-x C-f to do fasd-complete-f (only files)
