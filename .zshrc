@@ -106,6 +106,9 @@ fi
 # fzf
 
 if [ "$(command -v fzf)" ]; then
+  if [ "$(command -v fd)" ]; then
+    export FZF_DEFAULT_COMMAND="fd --type f"
+  fi
   source /usr/share/doc/fzf/examples/completion.zsh
   source /usr/share/doc/fzf/examples/key-bindings.zsh
 fi
