@@ -103,8 +103,7 @@ if [ "$(command -v exa)" ]; then
   alias tree='exa -glT'
 fi
 
-# fzf
-
+# fzf + fd
 if [ "$(command -v fzf)" ]; then
   if [ "$(command -v fd)" ]; then
     export FZF_DEFAULT_COMMAND="fd --type f"
@@ -112,7 +111,6 @@ if [ "$(command -v fzf)" ]; then
   source /usr/share/doc/fzf/examples/completion.zsh
   source /usr/share/doc/fzf/examples/key-bindings.zsh
 fi
-
 # }}}
 
 # Aliases for sudo {{{
