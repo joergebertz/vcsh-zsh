@@ -59,9 +59,9 @@ fi
 {
 # Compile the completion dump to increase startup speed.
   zcompdump="${ZDOTDIR:-$HOME}/.zcompdump"
-    if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]]; then
+  if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]]; then
     zcompile "$zcompdump"
-    fi
+  fi
 } &!
 # }}}
 
@@ -115,6 +115,8 @@ fi
 
 # Aliases for sudo {{{
 if [ "`id -u`" -ne 0 ]; then
+  alias apt='sudo /usr/bin/apt'
+  alias apt-cache='sudo /usr/bin/apt-cache'
   alias apt-get='sudo /usr/bin/apt-get'
   alias apt-file='sudo /usr/bin/apt-file'
   alias aptitude='sudo /usr/bin/aptitude'
